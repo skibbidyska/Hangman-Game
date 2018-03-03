@@ -18,10 +18,9 @@ var game = {
         for(var i = 0; i < this.word.length; i++){
             var listEntry = document.createElement("li");
             var element = document.getElementById("spaces").appendChild(listEntry);
-            document.getElementsByTagName("li")[i].setAttribute("class","d-inline-block m-3 border border-top-0 border-right-0 border-left-0 border-white");
-            document.getElementsByTagName("li")[i].setAttribute("style","width:22px; height:40px");
+            document.getElementsByTagName("li")[i].setAttribute("class","d-inline-block m-3 display-4");
             document.getElementsByTagName("li")[i].setAttribute("id","remove");
-            document.getElementsByTagName("li")[i].innerHTML = " ";
+            document.getElementsByTagName("li")[i].innerHTML = "__";
 
         }
 
