@@ -22,7 +22,7 @@ var game = {
             document.getElementsByTagName("li")[i].setAttribute("style","width:22px; height:40px");
             document.getElementsByTagName("li")[i].setAttribute("id","remove");
             document.getElementsByTagName("li")[i].innerHTML = " ";
-            console.log("these could be spaces");
+
         }
 
     },
