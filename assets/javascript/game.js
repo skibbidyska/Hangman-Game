@@ -112,11 +112,5 @@ document.onkeyup = function(event){
         game.incorrectGuess();
         game.gameWin();
         game.gameLoss();
-        console.log("Wins: " + game.wins);
-        console.log("Losses: " + game.losses);
-        console.log(game.word);
-        console.log("Guesses Left: " + game.guessesRemaining);
-        console.log("letters Guesed: " + game.guessed);
-        
     }
 }
