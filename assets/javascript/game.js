@@ -4,7 +4,7 @@ var game = {
     losses: 0,
     guessesRemaining: 10,
     word: "",
-    dictionary: ["cloud", "aerith", "sephiroth", "jenova", "tifa", "uffie", "barret", "vincent", "zack", "cid", "rufus", "turks", "materia"],
+    dictionary: ["Cloud", "Aerith", "Sephiroth", "Jenova", "Tifa", "Uffie", "Barret", "Vincent", "Zack", "Cid", "Rufus", "Turks", "Materia"],
     correct: 0,
     firstGame: 0,
     guessed: [],
@@ -20,7 +20,7 @@ var game = {
             var element = document.getElementById("spaces").appendChild(listEntry);
             document.getElementsByTagName("li")[i].setAttribute("class","d-inline-block m-3 display-4");
             document.getElementsByTagName("li")[i].setAttribute("id","remove");
-            document.getElementsByTagName("li")[i].innerHTML = "__";
+            document.getElementsByTagName("li")[i].innerHTML = "_";
 
         }
 
@@ -28,7 +28,7 @@ var game = {
     //correct guess 
     correctGuess: function(){
         for(var i = 0; i < this.word.length; i++){
-           if(this.word[i] === this.userInput){
+           if(this.word[i].toLowerCase() === this.userInput){
                document.getElementsByTagName("li")[i].setAttribute("class", "d-inline-block m-3 border-0 display-4");
                document.getElementsByTagName("li")[i].innerHTML = this.userInput;
                ++this.correct;
@@ -49,6 +49,7 @@ var game = {
     //win the game event
     gameWin: function(){
         if(this.word.length === this.correct){
+            document.querySelector("#correctAnswer").innerHTML = this.word;
             for(var i = 0; i < this.word.length; i++)
             document.getElementById("remove").remove();
             ++this.wins;
@@ -63,6 +64,7 @@ var game = {
     //lose the game event
     gameLoss: function(){
         if(this.guessesRemaining === 0){
+            document.querySelector("#correctAnswer").innerHTML = this.word;
             ++this.losses;
             this.correct = 0;
             this.guessesRemaining = 10;
@@ -91,7 +93,7 @@ var game = {
         else{
             this.guessed.push(" " + this.userInput.toUpperCase());
         }
-    }
+    },
 }
 
 document.onkeyup = function(event){
@@ -111,5 +113,6 @@ document.onkeyup = function(event){
         game.incorrectGuess();
         game.gameWin();
         game.gameLoss();
+
     }
 }
