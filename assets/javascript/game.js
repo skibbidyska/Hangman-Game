@@ -99,8 +99,7 @@ var game = {
 }
 
 document.onkeyup = function (event) {
-    game.userInput = String.fromCharCode(event.which).toLowerCase();
-    game.letterGuessed();
+
     //remove press to play and populate word, spaces, and scoreboard
     if (game.firstGame === 0) {
         document.getElementById("pressToPlay").remove();
@@ -111,7 +110,8 @@ document.onkeyup = function (event) {
     }
     //main game event (if the key pressed is a letter continue)
     if (event.keyCode >= 65 && event.keyCode <= 90) {
-        
+        game.userInput = String.fromCharCode(event.which).toLowerCase();
+        game.letterGuessed();
         game.correctGuess();
         game.incorrectGuess();
         game.gameWin();
